@@ -7,21 +7,38 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
+import java.util.Scanner;
 
+@SuppressWarnings("unused")
 public class Handler {
 
-	private File config;
-	@SuppressWarnings("unused")
-	private File passwordFile;
+	private File config = new File("config/config.xml");
+	private File passwordFile = new File("config/password.txt");
+	private String password;
 	public Properties properties = new Properties();
 
 	public Handler() {
 		readConfig();
+		readPassword();
 	}
 
+	public void readPassword() {
+		
+		//TODO Left off here
+		if (passwordFile.exists()) {
+			try {
+				Scanner input = new Scanner(passwordFile);
+				password = input.toString();
+				System.out.println(password);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
 	public void readConfig() {
 		// Search for config.xml where it should be
-		config = new File("config/config.xml");
 
 		// Check if config file exists. If it does, load it to properties
 		if (config.exists()) {
