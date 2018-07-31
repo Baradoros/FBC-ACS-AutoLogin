@@ -6,6 +6,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
@@ -15,9 +16,10 @@ public class GUI extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(new Dimension(300, 300));
-		add(new JLabel("This is a placeholder"));
+		add(new JLabel("This is a placeholder", SwingConstants.CENTER));
 
 		setVisible(true);
+		
 	}
 	
 	public File showExplorerWindow() {
