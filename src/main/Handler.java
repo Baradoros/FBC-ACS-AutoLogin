@@ -20,27 +20,33 @@ public class Handler {
 	public Handler() {
 		readConfig();
 		readPassword();
+		writeConfig();
 	}
 
 	public void readPassword() {
-		
-		//TODO Left off here
+
+		// TODO Left off here
 		if (passwordFile.exists()) {
-			
+
 			try {
 				Scanner input = new Scanner(passwordFile);
 				password = input.nextLine();
+				properties.setProperty("password", password.toString());
 				System.out.println(password);
-				
+
+				input.close();
+
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-			
+
+		} else {
+			// TODO Show window asking for manual input or file browser
 		}
 	}
-	
+
 	public void readConfig() {
-		
+
 		// Check if config file exists. If it does, load it to properties
 		if (config.exists()) {
 			FileInputStream input = null;
@@ -86,24 +92,24 @@ public class Handler {
 
 	public void writeConfig() {
 		FileOutputStream output = null;
-		
+
 		try {
 			output = new FileOutputStream(config);
-			properties.storeToXML(output, "FBC ACS Auto-Login 1");
+			properties.storeToXML(output, "FBC ACS Auto-Login");
 
 		} catch (IOException e) {
 			e.printStackTrace();
 
 		} finally {
-			
+
 			if (output != null) {
-				
+
 				try {
 					output.close();
-					
+
 				} catch (IOException e) {
 					e.printStackTrace();
-					
+
 				}
 			}
 		}

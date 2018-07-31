@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<comment>FBC ACS Auto-Login 1</comment>
+<comment>FBC ACS Auto-Login</comment>
+<entry key="password">password</entry>
 </properties>
