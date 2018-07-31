@@ -1,7 +1,9 @@
 package main;
 
 import java.awt.Dimension;
+import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -18,8 +20,13 @@ public class GUI extends JFrame {
 		setVisible(true);
 	}
 	
-	public void showExplorerWindow() {
-		//TODO file browser
+	public File showExplorerWindow() {
+		JFileChooser browser = new JFileChooser();
+		if (browser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			return browser.getSelectedFile();
+		} else {
+			return null;
+		}
 	}
 	
 	public void showErrorMessage(ErrorCode e) {

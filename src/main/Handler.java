@@ -123,6 +123,8 @@ public class Handler {
 			config.getParentFile().mkdirs();
 			config.createNewFile();
 
+			properties.setProperty("username", "username");
+			properties.setProperty("password", "password");
 			writeConfig();
 
 		} catch (IOException e) {
@@ -131,5 +133,4 @@ public class Handler {
 		}
 
 	}
-
 }
