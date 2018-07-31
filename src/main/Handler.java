@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Handler {
 
 	private File config = new File("config/config.xml");
-	private File passwordFile = new File("config/password.txt");
+	private File passwordFile = new File("config/ACSpassword.txt");
 	private String password;
 	public Properties properties = new Properties();
 
@@ -25,10 +25,11 @@ public class Handler {
 
 	public void readPassword() {
 
-		// TODO Left off here
+		// If expected password file exists
 		if (passwordFile.exists()) {
 
 			try {
+				// Load password from file
 				Scanner input = new Scanner(passwordFile);
 				password = input.nextLine();
 				properties.setProperty("password", password.toString());
@@ -41,7 +42,8 @@ public class Handler {
 			}
 
 		} else {
-			// TODO Show window asking for manual input or file browser
+			// If the file does not exist, load password from stored config
+			password = properties.getProperty("password");
 		}
 	}
 
