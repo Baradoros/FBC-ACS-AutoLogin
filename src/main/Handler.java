@@ -26,10 +26,12 @@ public class Handler {
 		
 		//TODO Left off here
 		if (passwordFile.exists()) {
+			
 			try {
 				Scanner input = new Scanner(passwordFile);
-				password = input.toString();
+				password = input.nextLine();
 				System.out.println(password);
+				
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -38,8 +40,7 @@ public class Handler {
 	}
 	
 	public void readConfig() {
-		// Search for config.xml where it should be
-
+		
 		// Check if config file exists. If it does, load it to properties
 		if (config.exists()) {
 			FileInputStream input = null;

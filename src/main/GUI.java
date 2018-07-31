@@ -17,4 +17,12 @@ public class GUI extends JFrame {
 
 		setVisible(true);
 	}
+	
+	public void showExplorerWindow() {
+		//TODO file browser
+	}
+	
+	public void showErrorMessage(ErrorCode e) {
+		
+	}
 }
