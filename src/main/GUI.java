@@ -19,9 +19,9 @@ public class GUI extends JFrame {
 		add(new JLabel("This is a placeholder", SwingConstants.CENTER));
 
 		setVisible(true);
-		
+
 	}
-	
+
 	public File showExplorerWindow() {
 		JFileChooser browser = new JFileChooser();
 		if (browser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
@@ -30,7 +30,7 @@ public class GUI extends JFrame {
 			return null;
 		}
 	}
-	
+
 	public void showErrorMessage(ErrorCode e) {
 		
 	}

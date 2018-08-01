@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 import java.util.Scanner;
@@ -15,12 +17,13 @@ public class Handler {
 	private File config = new File("config/config.xml");
 	private File passwordFile = new File("config/ACSpassword.txt");
 	private String password;
+	private GUI gui;
+
 	public Properties properties = new Properties();
 
-	public Handler() {
+	public Handler(GUI gui) {
+		this.gui = gui;
 		readConfig();
-		readPassword();
-		writeConfig();
 	}
 
 	public void readPassword() {
@@ -42,8 +45,26 @@ public class Handler {
 			}
 
 		} else {
+			if (checkConnection()) {
+				
+			}
 			// If the file does not exist, load password from stored config
 			password = properties.getProperty("password");
+		}
+	}
+
+	public boolean checkConnection() {
+		// Check for internet connection by pinging google
+		try {
+			
+			if (InetAddress.getByName("www.google.com").isReachable(10000))
+				return true;
+			else
+				return false;
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
 		}
 	}
 

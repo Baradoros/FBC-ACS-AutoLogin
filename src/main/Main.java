@@ -5,8 +5,8 @@ public class Main {
 	
 	
 	public Main() {
-		Handler handler = new Handler();
 		GUI gui = new GUI();
+		Handler handler = new Handler(gui);
 	}
 	
 	public static void main(String[] args) {
